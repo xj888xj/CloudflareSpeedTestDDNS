@@ -1,0 +1,19 @@
+name: Run Shell Script
+
+on:
+  workflow_dispatch:  # 手动触发
+  schedule:           # 定时触发
+    - cron: '0 0 * * *'  # 每天午夜 0 点触发（UTC 时间）
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run script
+        run: |
+          chmod +x ./start.sh  # 确保脚本是可执行的
+          ./start.sh            # 运行脚本
