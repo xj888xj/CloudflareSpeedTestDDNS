@@ -16,4 +16,5 @@ jobs:
       - name: Run script
         run: |
           chmod +x ./start.sh  # 确保脚本是可执行的
+          chmod +x .cf_ddns/*.sh  # 确保脚本是可执行的
           ./start.sh            # 运行脚本
