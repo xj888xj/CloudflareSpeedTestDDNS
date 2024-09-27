@@ -18,3 +18,13 @@ jobs:
           chmod +x ./start.sh  # 确保脚本是可执行的
           chmod +x ./cf_ddns/*.sh  # 确保脚本是可执行的
           ./start.sh            # 运行脚本
+          
+      - name: Commit results
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .          # 添加结果文件
+          git commit -m "Update result.txt with latest output" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 提供的 token 进行身份验证    
