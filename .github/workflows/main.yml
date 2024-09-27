@@ -21,7 +21,7 @@ jobs:
           
       - name: Convert CSV to TXT and extract IP
         run: |
-          awk -F, '{print $1}' ./cf_ddns/result.csv > yxip.txt  # 提取第二列（IP 地址）并保存为 yxip.txt   
+          awk -F, '{print $1}' ./cf_ddns/result.csv > yxip.txt  # 提取第一列（IP 地址）并保存为 yxip.txt   
           
       - name: Commit yxips
         run: |
